@@ -22,7 +22,9 @@ def encrypt(text, shift):
 	return premier+deuxieme
 
 def decrypt(encrypted_text, shift):
-	return ""
+	premier = encrypted_text[len(encrypted_text)-shift:len(encrypted_text)]
+	deuxieme = encrypted_text[0:len(encrypted_text)-shift]
+	return premier+deuxieme
 
 
 if __name__ == "__main__":
