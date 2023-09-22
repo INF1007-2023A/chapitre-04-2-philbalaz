@@ -6,13 +6,15 @@ def get_first_part_of_name(name):
 	# TODO: Extraire premier prenom
 	parts = name.split("-")
 	first_part = parts[0]
-	print(first_part)
-    # TODO: Capitaliser le premier prenom
-    # TODO: Inserer dans la phrase
-	return ""
+	first_part = first_part.capitalize()
+	return f"Bonjour {first_part}"	
+
 
 def get_random_sentence(animals, adjectives, fruits):
-	return ""
+	animale = random.choice(animals)
+	adjectif = random.choice(adjectives)
+	fruit = random.choice(fruits)
+	return f"Aujourd’hui, j’ai vu un {animale} s’emparer d’un panier {adjectif} plein de {fruit}"
 
 def encrypt(text, shift):
 	return ""
