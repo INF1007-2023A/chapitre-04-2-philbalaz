@@ -1,9 +1,14 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+
 
 import random
 
 def get_first_part_of_name(name):
+	# TODO: Extraire premier prenom
+	parts = name.split("-")
+	first_part = parts[0]
+	print(first_part)
+    # TODO: Capitaliser le premier prenom
+    # TODO: Inserer dans la phrase
 	return ""
 
 def get_random_sentence(animals, adjectives, fruits):
