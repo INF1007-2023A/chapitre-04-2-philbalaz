@@ -17,7 +17,9 @@ def get_random_sentence(animals, adjectives, fruits):
 	return f"Aujourd’hui, j’ai vu un {animale} s’emparer d’un panier {adjectif} plein de {fruit}"
 
 def encrypt(text, shift):
-	return ""
+	premier = text[shift:len(text)]
+	deuxieme = text[0:shift]
+	return premier+deuxieme
 
 def decrypt(encrypted_text, shift):
 	return ""
