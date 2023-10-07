@@ -1,30 +1,39 @@
-
-
 import random
 
 def get_first_part_of_name(name):
 	# TODO: Extraire premier prenom
-	parts = name.split("-")
-	first_part = parts[0]
-	first_part = first_part.capitalize()
-	return f"Bonjour {first_part}"	
-
+	n = name.find("-")
+	name = name[:n]
+	name = name.capitalize()
+	return(f"Bonjour {name}")
 
 def get_random_sentence(animals, adjectives, fruits):
-	animale = random.choice(animals)
-	adjectif = random.choice(adjectives)
-	fruit = random.choice(fruits)
-	return f"Aujourd’hui, j’ai vu un {animale} s’emparer d’un panier {adjectif} plein de {fruit}"
+	"""	a,b,c = random.choices(animals), random.choices(adjectives), random.choices(fruits)
+	return(f"«Aujourd’hui, j’ai vu un {a[0]} s’emparer d’un panier {b[0]} plein de {c[0]}.»")"""
+
+	phrase = "«Aujourd’hui, j’ai vu un %s s’emparer d’un panier %s plein de %s.»"
+	words = []
+	for word_set in (animals, adjectives, fruits):
+		words += [word_set[random.randrange(0, len(word_set))]]
+	return phrase % tuple(words)
+
 
 def encrypt(text, shift):
-	premier = text[shift:len(text)]
-	deuxieme = text[0:shift]
-	return premier+deuxieme
+	result = ""
+	for lettre in text:
+		encrypted_letter = lettre
+		if lettre.isalpha():
+			index = ord(lettre.upper()) - ord("A")
+			encrypted_index = (index + shift) % 26
+			encrypted_letter = chr(ord("A") + encrypted_index)
+		result += encrypted_letter
+	return result
+
+
 
 def decrypt(encrypted_text, shift):
-	premier = encrypted_text[len(encrypted_text)-shift:len(encrypted_text)]
-	deuxieme = encrypted_text[0:len(encrypted_text)-shift]
-	return premier+deuxieme
+	return encrypt(encrypted_text, -shift)
+
 
 
 if __name__ == "__main__":
